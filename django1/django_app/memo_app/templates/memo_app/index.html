@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div">
+        <h3>メモ内容</h3>
+        <form action="{% url 'post' %}" method="post">
+            {% csrf_token %}
+            <div>
+                {{form.content}}
+            </div>
+            <div>
+                <input type="submit" value="登録" class="post-botton">
+            </div>
+        </form>
+    </div>
+
+    </div>
+    {% for memo in memos %}
+    <div>
+        <p>{{ memo.content }}</p>
+        <p>{{ memo.update_datetime|date:"Y/m/d H:i:s" }}</p>
+    </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
